@@ -148,5 +148,64 @@
     <EmbeddedResource Include="RiskOfRuinaMod.ruinabundle" />
     <EmbeddedResource Include="ruina.bnk" />
   </ItemGroup>
+  <ItemGroup>
+	<Reference Include="BepInEx">
+		<HintPath>Modules\Libraries\BepInEx.dll</HintPath>
+		<Private>false</Private>
+	</Reference>
+	<Reference Include="Facepunch.Steamworks">
+      <HintPath>Modules\Libraries\Facepunch.Steamworks.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="KdTreeLib">
+      <HintPath>Modules\Libraries\KdTreeLib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="KinematicCharacterController">
+      <HintPath>Modules\Libraries\KinematicCharacterController.dll</HintPath>
+    </Reference>
+    <Reference Include="MMHOOK_RoR2">
+      <HintPath>Modules\Libraries\MMHOOK_RoR2.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>Modules\Libraries\Mono.Security.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="pb_Stl">
+      <HintPath>Modules\Libraries\pb_Stl.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Poly2Tri">
+      <HintPath>Modules\Libraries\Poly2Tri.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ProBuilderCore">
+      <HintPath>Modules\Libraries\ProBuilderCore.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ProBuilderMeshOps">
+      <HintPath>Modules\Libraries\ProBuilderMeshOps.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="R2API">
+      <HintPath>Modules\Libraries\R2API.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Rewired_Windows_Lib">
+      <HintPath>Modules\Libraries\Rewired_Windows_Lib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="SimpleJSON">
+      <HintPath>Modules\Libraries\SimpleJSON.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Wwise">
+      <HintPath>Modules\Libraries\Wwise.dll</HintPath>
+    </Reference>
+    <Reference Include="Zio">
+      <HintPath>Modules\Libraries\Zio.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

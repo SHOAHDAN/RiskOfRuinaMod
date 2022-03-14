@@ -4,22 +4,29 @@
 // MVID: CC89EB2D-2E0B-40F4-9AF1-10089A417494
 // Assembly location: C:\Users\Meme\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\modtest\BepInEx\plugins\Scoops-Risk_Of_Ruina\RiskOfRuinaMod.dll
 
+//Changes to decompiled code:
+//(1): Took the boilerplate from the modding discord's first mod guide and slapped all the libraries, etc. into the project files. Seems to have resolved a lot of missing dependencies.
+    //
+
+
+//The decompiler couldn't pull dependencies from the original .dll, so trying to figure out how to make all the "using" lines work is a huge pain in the ass.
+//Comments in this part of the code describe the files responsible for each dependency, which I have placed in RiskofRuinaMod/Modules/Libraries/.
 using AncientScepter;
-using BepInEx;
+using BepInEx; //Apparently VS doesn't think referencing the bepinex .dll from Thunderstore is good enough.
 using BepInEx.Bootstrap;
-using HG;
+using HG; //WTF is HG? (HookGenPatcher?)
 using NS_KingKombatArena;
-using On.RoR2;
+using On.RoR2; //MMHOOK_RoR2
 using On.RoR2.CharacterSpeech;
-using On.RoR2.Networking;
+using On.RoR2.Networking; //VS thinks this is redundant. I am unsure if this is the case.
 using On.RoR2.UI;
-using R2API;
+using R2API; //R2API.dll
 using R2API.Utils;
-using RiskOfRuinaMod.Modules;
+using RiskOfRuinaMod.Modules; //Self-referential, of course.
 using RiskOfRuinaMod.Modules.Components;
 using RiskOfRuinaMod.Modules.Items;
 using RiskOfRuinaMod.Modules.Survivors;
-using RoR2;
+using RoR2; //I am unsure how to make Risk of Rain 2 a reference.
 using RoR2.CharacterSpeech;
 using RoR2.ContentManagement;
 using RoR2.Networking;
@@ -28,7 +35,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
-using UnityEngine;
+using UnityEngine; //I am ALSO unsure how to make Unity a reference.
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
