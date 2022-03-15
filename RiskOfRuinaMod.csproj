@@ -1,159 +1,34 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
-  <!--Project was exported from assembly: C:\Users\Meme\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\modtest\BepInEx\plugins\Scoops-Risk_Of_Ruina\RiskOfRuinaMod.dll-->
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6B494B79-D61F-40A6-8D5A-3B9AA9341B7C}</ProjectGuid>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <AssemblyName>RiskOfRuinaMod</AssemblyName>
     <ApplicationVersion>1.0.0.0</ApplicationVersion>
-    <RootNamespace>RiskOfRuinaMod</RootNamespace>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="netstandard" />
+    <PackageReference Include="BepInEx.Core" Version="5.4.19" />
+    <PackageReference Include="RiskOfRain2.GameLibs" Version="1.2.2-r.0" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.310801">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BodyInfo.cs" />
-    <Compile Include="CustomRendererInfo.cs" />
-    <Compile Include="SkillDefInfo.cs" />
-    <Compile Include="RiskOfRuinaPlugin.cs" />
-    <Compile Include="SkillStates\CastPillar.cs" />
-    <Compile Include="SkillStates\CastShockwave.cs" />
-    <Compile Include="SkillStates\ChannelPillar.cs" />
-    <Compile Include="SkillStates\ChannelShockwave.cs" />
-    <Compile Include="SkillStates\ChargePillarSpear.cs" />
-    <Compile Include="SkillStates\FairyCombo.cs" />
-    <Compile Include="SkillStates\Lock.cs" />
-    <Compile Include="SkillStates\ScepterCastShockwave.cs" />
-    <Compile Include="SkillStates\ScepterChannelShockwave.cs" />
-    <Compile Include="SkillStates\ThrowPillarSpear.cs" />
-    <Compile Include="SkillStates\Unlock.cs" />
-    <Compile Include="SkillStates\AirBackAttack.cs" />
-    <Compile Include="SkillStates\AirBackFallingAttack.cs" />
-    <Compile Include="SkillStates\AirBasicAttack.cs" />
-    <Compile Include="SkillStates\BackAttack.cs" />
-    <Compile Include="SkillStates\BasicAttack.cs" />
-    <Compile Include="SkillStates\BasicStringStart.cs" />
-    <Compile Include="SkillStates\Block.cs" />
-    <Compile Include="SkillStates\BlockCounter.cs" />
-    <Compile Include="SkillStates\Dodge.cs" />
-    <Compile Include="SkillStates\EGOActivate.cs" />
-    <Compile Include="SkillStates\EGOActivateOut.cs" />
-    <Compile Include="SkillStates\EGOAirBackAttack.cs" />
-    <Compile Include="SkillStates\EGOAirBackFallingAttack.cs" />
-    <Compile Include="SkillStates\EGOAirBasicAttack.cs" />
-    <Compile Include="SkillStates\EGOBackAttack.cs" />
-    <Compile Include="SkillStates\EGOBasicAttack.cs" />
-    <Compile Include="SkillStates\EGOBlock.cs" />
-    <Compile Include="SkillStates\EGOBlockCounter.cs" />
-    <Compile Include="SkillStates\EGODeactivate.cs" />
-    <Compile Include="SkillStates\EGODodge.cs" />
-    <Compile Include="SkillStates\EGOForwardAttack.cs" />
-    <Compile Include="SkillStates\EGOHorizontal.cs" />
-    <Compile Include="SkillStates\EGOJumpAttack.cs" />
-    <Compile Include="SkillStates\EGOJumpRisingAttack.cs" />
-    <Compile Include="SkillStates\EGOSideAttack.cs" />
-    <Compile Include="SkillStates\ForwardAttack.cs" />
-    <Compile Include="SkillStates\JumpAttack.cs" />
-    <Compile Include="SkillStates\JumpRisingAttack.cs" />
-    <Compile Include="SkillStates\Onrush.cs" />
-    <Compile Include="SkillStates\SideAttack.cs" />
-    <Compile Include="SkillStates\BaseStates\BaseCastChanneledSpellState.cs" />
-    <Compile Include="SkillStates\BaseStates\BaseChannelSpellState.cs" />
-    <Compile Include="SkillStates\BaseStates\BaseChargeSpellState.cs" />
-    <Compile Include="SkillStates\BaseStates\BaseDirectionalSkill.cs" />
-    <Compile Include="SkillStates\BaseStates\BaseMeleeAttack.cs" />
-    <Compile Include="SkillStates\BaseStates\BaseThrowSpellState.cs" />
-    <Compile Include="Modules\Assets.cs" />
-    <Compile Include="Modules\Buffs.cs" />
-    <Compile Include="Modules\CameraParams.cs" />
-    <Compile Include="Modules\Config.cs" />
-    <Compile Include="Modules\ContentPacks.cs" />
-    <Compile Include="Modules\DoTCore.cs" />
-    <Compile Include="Modules\Helpers.cs" />
-    <Compile Include="Modules\ArrayHelper.cs" />
-    <Compile Include="Modules\ItemDisplays.cs" />
-    <Compile Include="Modules\ItemManager.cs" />
-    <Compile Include="Modules\Music.cs" />
-    <Compile Include="Modules\Prefabs.cs" />
-    <Compile Include="Modules\Projectiles.cs" />
-    <Compile Include="Modules\Skills.cs" />
-    <Compile Include="Modules\Skins.cs" />
-    <Compile Include="Modules\States.cs" />
-    <Compile Include="Modules\StaticValues.cs" />
-    <Compile Include="Modules\Tokens.cs" />
-    <Compile Include="Modules\Unlockables.cs" />
-    <Compile Include="Modules\IModdedUnlockableDataProvider.cs" />
-    <Compile Include="Modules\ModdedUnlockable.cs" />
-    <Compile Include="Modules\Survivors\AnArbiter.cs" />
-    <Compile Include="Modules\Survivors\BlackSilence.cs" />
-    <Compile Include="Modules\Survivors\RedMist.cs" />
-    <Compile Include="Modules\Survivors\SurvivorBase.cs" />
-    <Compile Include="Modules\Misc\ArbiterPillarController.cs" />
-    <Compile Include="Modules\Misc\ArbiterShockwaveController.cs" />
-    <Compile Include="Modules\Misc\DetonateFairyOnImpact.cs" />
-    <Compile Include="Modules\Misc\LockState.cs" />
-    <Compile Include="Modules\Items\ArbitersTrophy.cs" />
-    <Compile Include="Modules\Items\BackwardsClock.cs" />
-    <Compile Include="Modules\Items\BlackTea.cs" />
-    <Compile Include="Modules\Items\LiuBadge.cs" />
-    <Compile Include="Modules\Items\MoonlightStone.cs" />
-    <Compile Include="Modules\Items\MoonlightStoneTracker.cs" />
-    <Compile Include="Modules\Items\Prescript.cs" />
-    <Compile Include="Modules\Items\Reverberation.cs" />
-    <Compile Include="Modules\Items\RuinaEquipment.cs" />
-    <Compile Include="Modules\Items\RuinaItem.cs" />
-    <Compile Include="Modules\Items\UdjatMask.cs" />
-    <Compile Include="Modules\Items\WeddingRing.cs" />
-    <Compile Include="Modules\Items\WorkshopAmmo.cs" />
-    <Compile Include="Modules\Components\BlackSilenceManager.cs" />
-    <Compile Include="Modules\Components\EmotionHUD.cs" />
-    <Compile Include="Modules\Components\RedMistEGOSkillDef.cs" />
-    <Compile Include="Modules\Components\RedMistEmotionComponent.cs" />
-    <Compile Include="Modules\Components\RedMistStatTracker.cs" />
-    <Compile Include="Modules\Components\RiskOfRuinaNetworkManager.cs" />
-    <Compile Include="Modules\Components\TargettedSkillDef.cs" />
-    <Compile Include="Modules\Components\TargetTracker.cs" />
-    <Compile Include="Modules\Achievements\ArbiterMasteryAchievement.cs" />
-    <Compile Include="Modules\Achievements\BlackSilenceMasteryAchievement.cs" />
-    <Compile Include="Modules\Achievements\RedMistMasteryAchievement.cs" />
-    <Compile Include="AssemblyInfo.cs" />
+    <Reference Include="netstandard" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="RiskOfRuinaMod.ruinabundle" />
     <EmbeddedResource Include="ruina.bnk" />
   </ItemGroup>
   <ItemGroup>
-	<Reference Include="BepInEx">
-		<HintPath>Modules\Libraries\BepInEx.dll</HintPath>
-		<Private>false</Private>
-	</Reference>
-	<Reference Include="Facepunch.Steamworks">
+    <Reference Include="NS_KingKombatArena">
+      <HintPath>Modules\Libraries\KingKombatArena.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AncientScepter">
+      <HintPath>Modules\Libraries\AncientScepter.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Facepunch.Steamworks">
       <HintPath>Modules\Libraries\Facepunch.Steamworks.dll</HintPath>
       <Private>false</Private>
     </Reference>
@@ -207,5 +82,126 @@
       <Private>false</Private>
     </Reference>
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Analyzer Include="packages\BepInEx.Analyzers.1.0.8\analyzers\dotnet\cs\BepInEx.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="packages\BepInEx.Analyzers.1.0.8\analyzers\dotnet\cs\BepInEx.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" />
+    <PackageReference Include="BepInEx.Core" Version="6.0.0-be.551" />
+    <PackageReference Include="UnityEngine" Version="1.0.0" />
+    <PackageReference Include="UnityEngine.Modules" Version="2022.1.0-beta.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Backup\AssemblyInfo.cs" />
+    <Compile Remove="Backup\BodyInfo.cs" />
+    <Compile Remove="Backup\CustomRendererInfo.cs" />
+    <Compile Remove="Backup\Modules\Achievements\ArbiterMasteryAchievement.cs" />
+    <Compile Remove="Backup\Modules\Achievements\BlackSilenceMasteryAchievement.cs" />
+    <Compile Remove="Backup\Modules\Achievements\RedMistMasteryAchievement.cs" />
+    <Compile Remove="Backup\Modules\ArrayHelper.cs" />
+    <Compile Remove="Backup\Modules\Assets.cs" />
+    <Compile Remove="Backup\Modules\Buffs.cs" />
+    <Compile Remove="Backup\Modules\CameraParams.cs" />
+    <Compile Remove="Backup\Modules\Components\BlackSilenceManager.cs" />
+    <Compile Remove="Backup\Modules\Components\EmotionHUD.cs" />
+    <Compile Remove="Backup\Modules\Components\RedMistEGOSkillDef.cs" />
+    <Compile Remove="Backup\Modules\Components\RedMistEmotionComponent.cs" />
+    <Compile Remove="Backup\Modules\Components\RedMistStatTracker.cs" />
+    <Compile Remove="Backup\Modules\Components\RiskOfRuinaNetworkManager.cs" />
+    <Compile Remove="Backup\Modules\Components\TargettedSkillDef.cs" />
+    <Compile Remove="Backup\Modules\Components\TargetTracker.cs" />
+    <Compile Remove="Backup\Modules\Config.cs" />
+    <Compile Remove="Backup\Modules\ContentPacks.cs" />
+    <Compile Remove="Backup\Modules\DoTCore.cs" />
+    <Compile Remove="Backup\Modules\Helpers.cs" />
+    <Compile Remove="Backup\Modules\IModdedUnlockableDataProvider.cs" />
+    <Compile Remove="Backup\Modules\ItemDisplays.cs" />
+    <Compile Remove="Backup\Modules\ItemManager.cs" />
+    <Compile Remove="Backup\Modules\Items\ArbitersTrophy.cs" />
+    <Compile Remove="Backup\Modules\Items\BackwardsClock.cs" />
+    <Compile Remove="Backup\Modules\Items\BlackTea.cs" />
+    <Compile Remove="Backup\Modules\Items\LiuBadge.cs" />
+    <Compile Remove="Backup\Modules\Items\MoonlightStone.cs" />
+    <Compile Remove="Backup\Modules\Items\MoonlightStoneTracker.cs" />
+    <Compile Remove="Backup\Modules\Items\Prescript.cs" />
+    <Compile Remove="Backup\Modules\Items\Reverberation.cs" />
+    <Compile Remove="Backup\Modules\Items\RuinaEquipment.cs" />
+    <Compile Remove="Backup\Modules\Items\RuinaItem.cs" />
+    <Compile Remove="Backup\Modules\Items\UdjatMask.cs" />
+    <Compile Remove="Backup\Modules\Items\WeddingRing.cs" />
+    <Compile Remove="Backup\Modules\Items\WorkshopAmmo.cs" />
+    <Compile Remove="Backup\Modules\Misc\ArbiterPillarController.cs" />
+    <Compile Remove="Backup\Modules\Misc\ArbiterShockwaveController.cs" />
+    <Compile Remove="Backup\Modules\Misc\DetonateFairyOnImpact.cs" />
+    <Compile Remove="Backup\Modules\Misc\LockState.cs" />
+    <Compile Remove="Backup\Modules\ModdedUnlockable.cs" />
+    <Compile Remove="Backup\Modules\Music.cs" />
+    <Compile Remove="Backup\Modules\Prefabs.cs" />
+    <Compile Remove="Backup\Modules\Projectiles.cs" />
+    <Compile Remove="Backup\Modules\Skills.cs" />
+    <Compile Remove="Backup\Modules\Skins.cs" />
+    <Compile Remove="Backup\Modules\States.cs" />
+    <Compile Remove="Backup\Modules\StaticValues.cs" />
+    <Compile Remove="Backup\Modules\Survivors\AnArbiter.cs" />
+    <Compile Remove="Backup\Modules\Survivors\BlackSilence.cs" />
+    <Compile Remove="Backup\Modules\Survivors\RedMist.cs" />
+    <Compile Remove="Backup\Modules\Survivors\SurvivorBase.cs" />
+    <Compile Remove="Backup\Modules\Tokens.cs" />
+    <Compile Remove="Backup\Modules\Unlockables.cs" />
+    <Compile Remove="Backup\obj\Debug\.NETFramework,Version=v4.0.AssemblyAttributes.cs" />
+    <Compile Remove="Backup\obj\Release\.NETFramework,Version=v4.0.AssemblyAttributes.cs" />
+    <Compile Remove="Backup\RiskOfRuinaPlugin.cs" />
+    <Compile Remove="Backup\SkillDefInfo.cs" />
+    <Compile Remove="Backup\SkillStates\AirBackAttack.cs" />
+    <Compile Remove="Backup\SkillStates\AirBackFallingAttack.cs" />
+    <Compile Remove="Backup\SkillStates\AirBasicAttack.cs" />
+    <Compile Remove="Backup\SkillStates\BackAttack.cs" />
+    <Compile Remove="Backup\SkillStates\BaseStates\BaseCastChanneledSpellState.cs" />
+    <Compile Remove="Backup\SkillStates\BaseStates\BaseChannelSpellState.cs" />
+    <Compile Remove="Backup\SkillStates\BaseStates\BaseChargeSpellState.cs" />
+    <Compile Remove="Backup\SkillStates\BaseStates\BaseDirectionalSkill.cs" />
+    <Compile Remove="Backup\SkillStates\BaseStates\BaseMeleeAttack.cs" />
+    <Compile Remove="Backup\SkillStates\BaseStates\BaseThrowSpellState.cs" />
+    <Compile Remove="Backup\SkillStates\BasicAttack.cs" />
+    <Compile Remove="Backup\SkillStates\BasicStringStart.cs" />
+    <Compile Remove="Backup\SkillStates\Block.cs" />
+    <Compile Remove="Backup\SkillStates\BlockCounter.cs" />
+    <Compile Remove="Backup\SkillStates\CastPillar.cs" />
+    <Compile Remove="Backup\SkillStates\CastShockwave.cs" />
+    <Compile Remove="Backup\SkillStates\ChannelPillar.cs" />
+    <Compile Remove="Backup\SkillStates\ChannelShockwave.cs" />
+    <Compile Remove="Backup\SkillStates\ChargePillarSpear.cs" />
+    <Compile Remove="Backup\SkillStates\Dodge.cs" />
+    <Compile Remove="Backup\SkillStates\EGOActivate.cs" />
+    <Compile Remove="Backup\SkillStates\EGOActivateOut.cs" />
+    <Compile Remove="Backup\SkillStates\EGOAirBackAttack.cs" />
+    <Compile Remove="Backup\SkillStates\EGOAirBackFallingAttack.cs" />
+    <Compile Remove="Backup\SkillStates\EGOAirBasicAttack.cs" />
+    <Compile Remove="Backup\SkillStates\EGOBackAttack.cs" />
+    <Compile Remove="Backup\SkillStates\EGOBasicAttack.cs" />
+    <Compile Remove="Backup\SkillStates\EGOBlock.cs" />
+    <Compile Remove="Backup\SkillStates\EGOBlockCounter.cs" />
+    <Compile Remove="Backup\SkillStates\EGODeactivate.cs" />
+    <Compile Remove="Backup\SkillStates\EGODodge.cs" />
+    <Compile Remove="Backup\SkillStates\EGOForwardAttack.cs" />
+    <Compile Remove="Backup\SkillStates\EGOHorizontal.cs" />
+    <Compile Remove="Backup\SkillStates\EGOJumpAttack.cs" />
+    <Compile Remove="Backup\SkillStates\EGOJumpRisingAttack.cs" />
+    <Compile Remove="Backup\SkillStates\EGOSideAttack.cs" />
+    <Compile Remove="Backup\SkillStates\FairyCombo.cs" />
+    <Compile Remove="Backup\SkillStates\ForwardAttack.cs" />
+    <Compile Remove="Backup\SkillStates\JumpAttack.cs" />
+    <Compile Remove="Backup\SkillStates\JumpRisingAttack.cs" />
+    <Compile Remove="Backup\SkillStates\Lock.cs" />
+    <Compile Remove="Backup\SkillStates\Onrush.cs" />
+    <Compile Remove="Backup\SkillStates\ScepterCastShockwave.cs" />
+    <Compile Remove="Backup\SkillStates\ScepterChannelShockwave.cs" />
+    <Compile Remove="Backup\SkillStates\SideAttack.cs" />
+    <Compile Remove="Backup\SkillStates\ThrowPillarSpear.cs" />
+    <Compile Remove="Backup\SkillStates\Unlock.cs" />
+  </ItemGroup>
 </Project>

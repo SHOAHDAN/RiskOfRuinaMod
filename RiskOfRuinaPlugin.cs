@@ -5,17 +5,18 @@
 // Assembly location: C:\Users\Meme\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\modtest\BepInEx\plugins\Scoops-Risk_Of_Ruina\RiskOfRuinaMod.dll
 
 //Changes to decompiled code:
+//(0): The decompiler made the project under .Net Framework. Had to update it to .NET Standard to make certain libraries work.
 //(1): Took the boilerplate from the modding discord's first mod guide and slapped all the libraries, etc. into the project files. Seems to have resolved a lot of missing dependencies.
-    //
+  //(1a) For some reason the boilerplate installs a bunch of packages on your machine under [User]\.nuget . For another, even stranger reason, VS doesn't recognize them by default so you gotta go to Nuget\Package Sources in the settings to point out that this folder exists to VS. If there's a less janky way to get the packages in, I don't know it.
 
 
 //The decompiler couldn't pull dependencies from the original .dll, so trying to figure out how to make all the "using" lines work is a huge pain in the ass.
-//Comments in this part of the code describe the files responsible for each dependency, which I have placed in RiskofRuinaMod/Modules/Libraries/.
+//Comments in this part of the code describe the files responsible for each dependency, which are either in RiskofRuinaMod/Modules/Libraries/ or a NuGen package.
 using AncientScepter;
 using BepInEx; //Apparently VS doesn't think referencing the bepinex .dll from Thunderstore is good enough.
-using BepInEx.Bootstrap;
-using HG; //WTF is HG? (HookGenPatcher?)
-using NS_KingKombatArena;
+using BepInEx.Bootstrap; //Adding BepInEx as a NG package (from the boilerplate) did it.
+using HG; //WTF is HG? (HookGenPatcher?) Don't care it fixed itself lol
+using NS_KingKombatArena; //KingKombatArena.dll
 using On.RoR2; //MMHOOK_RoR2
 using On.RoR2.CharacterSpeech;
 using On.RoR2.Networking; //VS thinks this is redundant. I am unsure if this is the case.
@@ -35,9 +36,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
-using UnityEngine; //I am ALSO unsure how to make Unity a reference.
-using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
+using UnityEngine; //Adding UnityEngine as a package seemed to do it.
+using UnityEngine.Networking; //Works, now that I have updated to .NET Standard 2.0.
+using UnityEngine.SceneManagement; //Apparently does not exist. I am confused.
+
+//We're down from 6000 errors to 3806!!! WE DID IT REDDIT!!!
 
 namespace RiskOfRuinaMod
 {
