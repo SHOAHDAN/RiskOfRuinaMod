@@ -1,34 +1,36 @@
 using System.Collections.Generic;
 using RiskOfRuinaMod.Modules.Items;
 
-namespace RiskOfRuinaMod.Modules;
-
-internal class ItemManager
+namespace RiskOfRuinaMod.Modules
 {
-	public static ItemManager instance;
 
-	public List<RuinaItem> items = new List<RuinaItem>();
-
-	public List<RuinaEquipment> equips = new List<RuinaEquipment>();
-
-	public ItemManager()
+	internal class ItemManager
 	{
-		instance = this;
-	}
+		public static ItemManager instance;
 
-	public void AddItems()
-	{
-		foreach (RuinaItem item in items)
+		public List<RuinaItem> items = new List<RuinaItem>();
+
+		public List<RuinaEquipment> equips = new List<RuinaEquipment>();
+
+		public ItemManager()
 		{
-			item.Init();
+			instance = this;
 		}
-	}
 
-	public void AddEquips()
-	{
-		foreach (RuinaEquipment equip in equips)
+		public void AddItems()
 		{
-			equip.Init();
+			foreach (RuinaItem item in items)
+			{
+				item.Init();
+			}
+		}
+
+		public void AddEquips()
+		{
+			foreach (RuinaEquipment equip in equips)
+			{
+				equip.Init();
+			}
 		}
 	}
 }

@@ -3,38 +3,40 @@ using RoR2;
 using RoR2.Skills;
 using UnityEngine;
 
-namespace RiskOfRuinaMod.Modules.Components;
-
-internal class TargettedSkillDef : SkillDef
+namespace RiskOfRuinaMod.Modules.Components
 {
-	protected class InstanceData : BaseSkillInstanceData
-	{
-		public TargetTracker TrackerComponent;
-	}
 
-	public float cost;
-
-	public override BaseSkillInstanceData OnAssigned([NotNull] GenericSkill skillSlot)
+	internal class TargettedSkillDef : SkillDef
 	{
-		return (BaseSkillInstanceData)(object)new InstanceData
+		protected class InstanceData : BaseSkillInstanceData
 		{
-			TrackerComponent = ((Component)(object)skillSlot).GetComponent<TargetTracker>()
-		};
-	}
+			public TargetTracker TrackerComponent;
+		}
 
-	private static bool HasTarget([NotNull] GenericSkill skillSlot)
-	{
-		TargetTracker trackerComponent = ((InstanceData)(object)skillSlot.get_skillInstanceData()).TrackerComponent;
-		return (Object)(object)trackerComponent != null && (bool)(Object)(object)trackerComponent.GetTrackingTarget();
-	}
+		public float cost;
 
-	public override bool CanExecute([NotNull] GenericSkill skillSlot)
-	{
-		return HasTarget(skillSlot) && ((SkillDef)this).CanExecute(skillSlot);
-	}
+		public override BaseSkillInstanceData OnAssigned([NotNull] GenericSkill skillSlot)
+		{
+			return (BaseSkillInstanceData)(object)new InstanceData
+			{
+				TrackerComponent = ((Component)(object)skillSlot).GetComponent<TargetTracker>()
+			};
+		}
 
-	public override bool IsReady([NotNull] GenericSkill skillSlot)
-	{
-		return ((SkillDef)this).IsReady(skillSlot) && HasTarget(skillSlot);
+		private static bool HasTarget([NotNull] GenericSkill skillSlot)
+		{
+			TargetTracker trackerComponent = ((InstanceData)(object)skillSlot.get_skillInstanceData()).TrackerComponent;
+			return (Object)(object)trackerComponent != null && (bool)(Object)(object)trackerComponent.GetTrackingTarget();
+		}
+
+		public override bool CanExecute([NotNull] GenericSkill skillSlot)
+		{
+			return HasTarget(skillSlot) && ((SkillDef)this).CanExecute(skillSlot);
+		}
+
+		public override bool IsReady([NotNull] GenericSkill skillSlot)
+		{
+			return ((SkillDef)this).IsReady(skillSlot) && HasTarget(skillSlot);
+		}
 	}
 }

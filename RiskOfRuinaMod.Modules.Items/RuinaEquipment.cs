@@ -1,24 +1,26 @@
 using BepInEx.Configuration;
 
-namespace RiskOfRuinaMod.Modules.Items;
-
-public abstract class RuinaEquipment
+namespace RiskOfRuinaMod.Modules.Items
 {
-	internal abstract ConfigEntry<bool> equipEnabled { get; set; }
 
-	internal abstract string equipName { get; set; }
-
-	public virtual void Init()
+	public abstract class RuinaEquipment
 	{
-		equipEnabled = Config.ItemEnableConfig(equipName);
-		if (equipEnabled.Value)
+		internal abstract ConfigEntry<bool> equipEnabled { get; set; }
+
+		internal abstract string equipName { get; set; }
+
+		public virtual void Init()
 		{
-			EquipSetup();
-			HookSetup();
+			equipEnabled = Config.ItemEnableConfig(equipName);
+			if (equipEnabled.Value)
+			{
+				EquipSetup();
+				HookSetup();
+			}
 		}
+
+		public abstract void EquipSetup();
+
+		public abstract void HookSetup();
 	}
-
-	public abstract void EquipSetup();
-
-	public abstract void HookSetup();
 }

@@ -4,7 +4,8 @@ using RoR2;
 using RoR2.Achievements;
 using UnityEngine;
 
-namespace RiskOfRuinaMod.Modules.Achievements;
+namespace RiskOfRuinaMod.Modules.Achievements 
+{
 
 internal class BlackSilenceMasteryAchievement : ModdedUnlockable
 {
@@ -75,4 +76,5 @@ internal class BlackSilenceMasteryAchievement : ModdedUnlockable
 		base.OnUninstall();
 		Run.remove_onClientGameOverGlobal((Action<Run, RunReport>)ClearCheck);
 	}
+}
 }

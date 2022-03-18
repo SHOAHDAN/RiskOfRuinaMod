@@ -1,36 +1,38 @@
 using EntityStates;
 using RiskOfRuinaMod.SkillStates.BaseStates;
 
-namespace RiskOfRuinaMod.SkillStates;
-
-public class BasicStringStart : BaseDirectionalSkill
+namespace RiskOfRuinaMod.SkillStates
 {
-	public override void OnEnter()
-	{
-		base.OnEnter();
-		attackIndex = 0;
-	}
 
-	public override void OnExit()
+	public class BasicStringStart : BaseDirectionalSkill
 	{
-		base.OnExit();
-	}
-
-	protected override void FireAttack()
-	{
-	}
-
-	public override void FixedUpdate()
-	{
-		if (((EntityState)this).get_isAuthority())
+		public override void OnEnter()
 		{
-			EvaluateInput();
-			SetNextState();
+			base.OnEnter();
+			attackIndex = 0;
 		}
-	}
 
-	protected override void SetNextState()
-	{
-		base.SetNextState();
+		public override void OnExit()
+		{
+			base.OnExit();
+		}
+
+		protected override void FireAttack()
+		{
+		}
+
+		public override void FixedUpdate()
+		{
+			if (((EntityState)this).get_isAuthority())
+			{
+				EvaluateInput();
+				SetNextState();
+			}
+		}
+
+		protected override void SetNextState()
+		{
+			base.SetNextState();
+		}
 	}
 }

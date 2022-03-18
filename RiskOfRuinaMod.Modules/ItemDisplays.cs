@@ -2,49 +2,51 @@ using System.Collections.Generic;
 using RoR2;
 using UnityEngine;
 
-namespace RiskOfRuinaMod.Modules;
-
-internal static class ItemDisplays
+namespace RiskOfRuinaMod.Modules
 {
-	private static Dictionary<string, GameObject> itemDisplayPrefabs = new Dictionary<string, GameObject>();
 
-	internal static void PopulateDisplays()
+	internal static class ItemDisplays
 	{
-		PopulateFromBody("Commando");
-		PopulateFromBody("Croco");
-		PopulateFromBody("Mage");
-	}
+		private static Dictionary<string, GameObject> itemDisplayPrefabs = new Dictionary<string, GameObject>();
 
-	private static void PopulateFromBody(string bodyName)
-	{
-		ItemDisplayRuleSet itemDisplayRuleSet = Resources.Load<GameObject>("Prefabs/CharacterBodies/" + bodyName + "Body").GetComponent<ModelLocator>().get_modelTransform()
-			.GetComponent<CharacterModel>()
-			.itemDisplayRuleSet;
-		KeyAssetRuleGroup[] keyAssetRuleGroups = itemDisplayRuleSet.keyAssetRuleGroups;
-		for (int i = 0; i < keyAssetRuleGroups.Length; i++)
+		internal static void PopulateDisplays()
 		{
-			ItemDisplayRule[] rules = keyAssetRuleGroups[i].displayRuleGroup.rules;
-			for (int j = 0; j < rules.Length; j++)
+			PopulateFromBody("Commando");
+			PopulateFromBody("Croco");
+			PopulateFromBody("Mage");
+		}
+
+		private static void PopulateFromBody(string bodyName)
+		{
+			ItemDisplayRuleSet itemDisplayRuleSet = Resources.Load<GameObject>("Prefabs/CharacterBodies/" + bodyName + "Body").GetComponent<ModelLocator>().get_modelTransform()
+				.GetComponent<CharacterModel>()
+				.itemDisplayRuleSet;
+			KeyAssetRuleGroup[] keyAssetRuleGroups = itemDisplayRuleSet.keyAssetRuleGroups;
+			for (int i = 0; i < keyAssetRuleGroups.Length; i++)
 			{
-				GameObject followerPrefab = rules[j].followerPrefab;
-				if ((bool)followerPrefab)
+				ItemDisplayRule[] rules = keyAssetRuleGroups[i].displayRuleGroup.rules;
+				for (int j = 0; j < rules.Length; j++)
 				{
-					string key = followerPrefab.name?.ToLower();
-					if (!itemDisplayPrefabs.ContainsKey(key))
+					GameObject followerPrefab = rules[j].followerPrefab;
+					if ((bool)followerPrefab)
 					{
-						itemDisplayPrefabs[key] = followerPrefab;
+						string key = followerPrefab.name?.ToLower();
+						if (!itemDisplayPrefabs.ContainsKey(key))
+						{
+							itemDisplayPrefabs[key] = followerPrefab;
+						}
 					}
 				}
 			}
 		}
-	}
 
-	internal static GameObject LoadDisplay(string name)
-	{
-		if (itemDisplayPrefabs.ContainsKey(name.ToLower()) && (bool)itemDisplayPrefabs[name.ToLower()])
+		internal static GameObject LoadDisplay(string name)
 		{
-			return itemDisplayPrefabs[name.ToLower()];
+			if (itemDisplayPrefabs.ContainsKey(name.ToLower()) && (bool)itemDisplayPrefabs[name.ToLower()])
+			{
+				return itemDisplayPrefabs[name.ToLower()];
+			}
+			return null;
 		}
-		return null;
 	}
 }
