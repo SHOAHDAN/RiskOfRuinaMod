@@ -1,30 +1,32 @@
 using System;
 using System.Collections.Generic;
 
-namespace RiskOfRuinaMod.Modules;
-
-internal static class Helpers
+namespace RiskOfRuinaMod.Modules
 {
-	internal const string agilePrefix = "<style=cIsUtility>Agile</style> ";
 
-	internal const string fairyPrefix = "<style=cIsUtility>Fairy</style> ";
-
-	internal static string ScepterDescription(string desc)
+	internal static class Helpers
 	{
-		return "\n<color=#d299ff>SCEPTER: " + desc + "</color>";
-	}
+		internal const string agilePrefix = "<style=cIsUtility>Agile</style> ";
 
-	public static T[] Append<T>(ref T[] array, List<T> list)
-	{
-		int num = array.Length;
-		int count = list.Count;
-		Array.Resize(ref array, num + count);
-		list.CopyTo(array, num);
-		return array;
-	}
+		internal const string fairyPrefix = "<style=cIsUtility>Fairy</style> ";
 
-	public static Func<T[], T[]> AppendDel<T>(List<T> list)
-	{
-		return (T[] r) => Append(ref r, list);
+		internal static string ScepterDescription(string desc)
+		{
+			return "\n<color=#d299ff>SCEPTER: " + desc + "</color>";
+		}
+
+		public static T[] Append<T>(ref T[] array, List<T> list)
+		{
+			int num = array.Length;
+			int count = list.Count;
+			Array.Resize(ref array, num + count);
+			list.CopyTo(array, num);
+			return array;
+		}
+
+		public static Func<T[], T[]> AppendDel<T>(List<T> list)
+		{
+			return (T[] r) => Append(ref r, list);
+		}
 	}
 }

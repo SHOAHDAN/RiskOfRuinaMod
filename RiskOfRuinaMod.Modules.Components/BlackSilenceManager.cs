@@ -2,30 +2,32 @@ using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RiskOfRuinaMod.Modules.Components;
-
-public class BlackSilenceManager : NetworkBehaviour
+namespace RiskOfRuinaMod.Modules.Components
 {
-	public CharacterBody characterBody;
 
-	public bool angelica = false;
-
-	private void Start()
+	public class BlackSilenceManager : NetworkBehaviour
 	{
-		characterBody = ((Component)this).GetComponent<CharacterBody>();
-	}
+		public CharacterBody characterBody;
 
-	private void UNetVersion()
-	{
-	}
+		public bool angelica = false;
 
-	public override bool OnSerialize(NetworkWriter writer, bool forceAll)
-	{
-		bool result = default(bool);
-		return result;
-	}
+		private void Start()
+		{
+			characterBody = ((Component)this).GetComponent<CharacterBody>();
+		}
 
-	public override void OnDeserialize(NetworkReader reader, bool initialState)
-	{
+		private void UNetVersion()
+		{
+		}
+
+		public override bool OnSerialize(NetworkWriter writer, bool forceAll)
+		{
+			bool result = default(bool);
+			return result;
+		}
+
+		public override void OnDeserialize(NetworkReader reader, bool initialState)
+		{
+		}
 	}
 }

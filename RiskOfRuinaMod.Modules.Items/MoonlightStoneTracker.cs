@@ -1,8 +1,10 @@
 using UnityEngine;
 
-namespace RiskOfRuinaMod.Modules.Items;
-
-public class MoonlightStoneTracker : MonoBehaviour
+namespace RiskOfRuinaMod.Modules.Items
 {
-	public float timer = 0f;
+
+	public class MoonlightStoneTracker : MonoBehaviour
+	{
+		public float timer = 0f;
+	}
 }

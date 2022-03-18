@@ -1,25 +1,27 @@
 using System;
 using UnityEngine;
 
-namespace RiskOfRuinaMod.Modules;
-
-internal interface IModdedUnlockableDataProvider
+namespace RiskOfRuinaMod.Modules
 {
-	string AchievementIdentifier { get; }
 
-	string UnlockableIdentifier { get; }
+	internal interface IModdedUnlockableDataProvider
+	{
+		string AchievementIdentifier { get; }
 
-	string AchievementNameToken { get; }
+		string UnlockableIdentifier { get; }
 
-	string PrerequisiteUnlockableIdentifier { get; }
+		string AchievementNameToken { get; }
 
-	string UnlockableNameToken { get; }
+		string PrerequisiteUnlockableIdentifier { get; }
 
-	string AchievementDescToken { get; }
+		string UnlockableNameToken { get; }
 
-	Sprite Sprite { get; }
+		string AchievementDescToken { get; }
 
-	Func<string> GetHowToUnlock { get; }
+		Sprite Sprite { get; }
 
-	Func<string> GetUnlocked { get; }
+		Func<string> GetHowToUnlock { get; }
+
+		Func<string> GetUnlocked { get; }
+	}
 }

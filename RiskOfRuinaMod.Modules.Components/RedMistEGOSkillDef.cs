@@ -3,38 +3,40 @@ using RoR2;
 using RoR2.Skills;
 using UnityEngine;
 
-namespace RiskOfRuinaMod.Modules.Components;
-
-internal class RedMistEGOSkillDef : SkillDef
+namespace RiskOfRuinaMod.Modules.Components
 {
-	protected class InstanceData : BaseSkillInstanceData
-	{
-		public RedMistEmotionComponent EGOComponent;
-	}
 
-	public float cost;
-
-	public override BaseSkillInstanceData OnAssigned([NotNull] GenericSkill skillSlot)
+	internal class RedMistEGOSkillDef : SkillDef
 	{
-		return (BaseSkillInstanceData)(object)new InstanceData
+		protected class InstanceData : BaseSkillInstanceData
 		{
-			EGOComponent = ((Component)(object)skillSlot).GetComponent<RedMistEmotionComponent>()
-		};
-	}
+			public RedMistEmotionComponent EGOComponent;
+		}
 
-	private static bool HasSufficientEGO([NotNull] GenericSkill skillSlot)
-	{
-		RedMistEmotionComponent eGOComponent = ((InstanceData)(object)skillSlot.get_skillInstanceData()).EGOComponent;
-		return (Object)(object)eGOComponent != null && eGOComponent.currentEmotion >= (float)skillSlot.get_rechargeStock();
-	}
+		public float cost;
 
-	public override bool CanExecute([NotNull] GenericSkill skillSlot)
-	{
-		return HasSufficientEGO(skillSlot) && ((SkillDef)this).CanExecute(skillSlot);
-	}
+		public override BaseSkillInstanceData OnAssigned([NotNull] GenericSkill skillSlot)
+		{
+			return (BaseSkillInstanceData)(object)new InstanceData
+			{
+				EGOComponent = ((Component)(object)skillSlot).GetComponent<RedMistEmotionComponent>()
+			};
+		}
 
-	public override bool IsReady([NotNull] GenericSkill skillSlot)
-	{
-		return ((SkillDef)this).IsReady(skillSlot) && HasSufficientEGO(skillSlot);
+		private static bool HasSufficientEGO([NotNull] GenericSkill skillSlot)
+		{
+			RedMistEmotionComponent eGOComponent = ((InstanceData)(object)skillSlot.get_skillInstanceData()).EGOComponent;
+			return (Object)(object)eGOComponent != null && eGOComponent.currentEmotion >= (float)skillSlot.get_rechargeStock();
+		}
+
+		public override bool CanExecute([NotNull] GenericSkill skillSlot)
+		{
+			return HasSufficientEGO(skillSlot) && ((SkillDef)this).CanExecute(skillSlot);
+		}
+
+		public override bool IsReady([NotNull] GenericSkill skillSlot)
+		{
+			return ((SkillDef)this).IsReady(skillSlot) && HasSufficientEGO(skillSlot);
+		}
 	}
 }
